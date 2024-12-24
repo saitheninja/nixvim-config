@@ -10,6 +10,7 @@
       inputs = {
         nixpkgs.follows = "nixpkgs";
         flake-parts.follows = "flake-parts";
+
         # not using these inputs
         devshell.follows = "";
         flake-compat.follows = "";
