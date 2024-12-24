@@ -288,6 +288,7 @@
     };
     lspkind = {
       enable = true; # add pictograms for LSP completion items
+
       cmp = {
         enable = true; # format nvim-cmp menu
 
@@ -346,15 +347,19 @@
     rainbow-delimiters.enable = true; # matching brackets get matching colours
     treesitter = {
       enable = true; # parse text as Abstract Syntax Tree (AST) for better understanding
+
       folding = true;
       nixvimInjections = true; # enable nixvim specific injections, like lua highlighting in extraConfigLua
       nixGrammars = true; # default true
       nodejsPackage = null; # required to build grammars if you are not using `nixGrammars`
+
       settings = {
         highlight.enable = true;
         indent.enable = true;
+
         # incremental_selection = {
         #   enable = true;
+        #
         #   keymaps = {
         #     init_selection = "gnn"; # set to `false` to disable mapping
         #     node_incremental = "grn";
@@ -367,14 +372,17 @@
     treesitter-context = {
       enable = true; # sticky scope
 
-      settings.enable = true; # toggle with :TSContextToggle
-      settings.max_lines = 4;
+      settings = {
+        #enable = false; # toggle with :TSContextToggle
+        max_lines = 4;
+      };
     };
     treesitter-textobjects = {
       enable = true;
 
       lspInterop = {
         enable = true;
+
         border = "double";
         peekDefinitionCode = {
           "<leader>d" = {
@@ -394,6 +402,7 @@
 
       move = {
         enable = true;
+
         gotoNextStart = {
           "]c" = {
             query = "@class.outer";
@@ -489,6 +498,7 @@
 
       select = {
         enable = true;
+
         includeSurroundingWhitespace = true;
         lookahead = true;
 
@@ -536,6 +546,7 @@
 
       swap = {
         enable = true;
+
         swapNext = {
           "]]" = {
             query = "@parameter.inner";
@@ -554,7 +565,7 @@
     ts-context-commentstring.enable = true; # automatically use correct comment syntax
 
     # ui
-    dressing.enable = true; # use telescope for `vim.ui.input` & `vim.ui.select`
+    dressing.enable = true; # use Telescope for `vim.ui.input` & `vim.ui.select`
     fidget.enable = true; # notifications & lsp progress
     scrollview.enable = true; # scrollbar with indicators for diagnostics
     web-devicons.enable = true; # file type icons
@@ -722,59 +733,70 @@
       }
 
       {
-        action = "<Cmd>bnext<CR>"; # bn[ext]
+        action = "<Cmd>bn<CR>";
         key = "<leader>bn";
         mode = "n";
         options = {
-          desc = "Neovim: buffer next";
+          desc = "next";
         };
       }
       {
-        action = "<Cmd>bprevious<CR>"; # bp[revious]
+        action = "<Cmd>bp<CR>";
         key = "<leader>bp";
         mode = "n";
         options = {
-          desc = "Neovim: buffer previous";
+          desc = "previous";
         };
       }
+
       {
         action = "<Cmd>b#<CR>";
-        key = "<leader>b#";
+        key = "<leader>b#"; # also <C-6>, <C-^>
         mode = "n";
         options = {
-          desc = "Neovim: buffer alternate";
+          desc = "alternate";
         };
       }
+
       {
-        action = "<Cmd>bfirst<CR>";
+        action = "<Cmd>bf<CR>";
         key = "<leader>bf";
         mode = "n";
         options = {
-          desc = "Neovim: buffer first";
+          desc = "first";
         };
       }
       {
-        action = "<Cmd>blast<CR>";
+        action = "<Cmd>br<CR>";
+        key = "<leader>br";
+        mode = "n";
+        options = {
+          desc = "rewind (same as first)";
+        };
+      }
+      {
+        action = "<Cmd>bl<CR>";
         key = "<leader>bl";
         mode = "n";
         options = {
-          desc = "Neovim: buffer last";
+          desc = "last";
         };
       }
+
       {
-        action = "<Cmd>ball<CR>"; # see also :unh[ide]
+        action = "<Cmd>ba<CR>";
         key = "<leader>ba";
         mode = "n";
         options = {
-          desc = "Neovim: one window for each buffer";
+          desc = "all (one window for each buffer)";
         };
       }
       {
-        action = "<Cmd>bdelete<CR>";
+        action = "<Cmd>bd<CR>";
         key = "<leader>bd";
         mode = "n";
         options = {
-          desc = "Neovim: buffer delete";
+          desc = "delete";
         };
       }
     ]
