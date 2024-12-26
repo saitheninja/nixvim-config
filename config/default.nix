@@ -15,6 +15,7 @@
   # extra packages to install with nix
   extraPackages = with pkgs; [
     wl-clipboard # wayland clipboard utils
+    ripgrep # fast search for grug-far
     #zls # zig LSP
   ];
   withNodeJs = false; # install Node and Node plugin provider npm package "neovim"
@@ -196,14 +197,12 @@
     # git diffs as coloured symbols in signcolumn
     gitsigns = {
       enable = true;
-
       settings.current_line_blame_opts.delay = 0;
     };
 
     # fancy git interface
     neogit = {
       enable = true;
-
       settings.integrations = {
         diffview = true;
         telescope = true;
@@ -573,6 +572,7 @@
 
     # ...rest
     auto-session.enable = true; # session manager
+    grug-far.enable = true; # find and replace
     oil = {
       enable = true; # file explorer as a buffer
 
@@ -822,26 +822,6 @@
       }
     ]
 
-    # inc-rename
-    ++ [
-      {
-        action = "";
-        key = "<leader>r";
-        mode = "n";
-        options = {
-          desc = "+IncRename incremental find and replace";
-        };
-      }
-      {
-        action = ":IncRename ";
-        key = "<leader>rn";
-        mode = "n";
-        options = {
-          desc = "IncRename: start rename";
-        };
-      }
-    ]
-
     # git
     ++ [
       {
@@ -899,6 +879,39 @@
         mode = "n";
         options = {
           desc = "Oil: open parent directory";
+        };
+      }
+    ]
+
+    # inc-rename
+    ++ [
+      {
+        action = "";
+        key = "<leader>r";
+        mode = "n";
+        options = {
+          desc = "+IncRename & GrugFar incremental find and replace";
+        };
+      }
+
+      {
+        action = ":IncRename ";
+        key = "<leader>rn";
+        mode = "n";
+        options = {
+          desc = "IncRename: start rename";
+        };
+      }
+
+      {
+        action = "<Cmd>GrugFar<CR>";
+        key = "<leader>rg";
+        mode = [
+          "n"
+          "v"
+        ];
+        options = {
+          desc = "GrugFar: open in new vertical split buffer";
         };
       }
     ]
