@@ -10,7 +10,7 @@
       key = "<leader>x";
       mode = "n";
       options = {
-        desc = "+view LSP diagnostics with Trouble";
+        desc = "+Trouble LSP diagnostics";
       };
     }
     {

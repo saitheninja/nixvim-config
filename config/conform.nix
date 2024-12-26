@@ -57,7 +57,7 @@
         "v"
       ];
       options = {
-        desc = "+format with Conform";
+        desc = "+Conform format";
       };
     }
 

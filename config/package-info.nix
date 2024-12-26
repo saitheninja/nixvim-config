@@ -10,7 +10,7 @@
       key = "<leader>p";
       mode = "n";
       options = {
-        desc = "+Check NPM package-info";
+        desc = "+PackageInfo for NPM";
       };
     }
 
@@ -19,7 +19,7 @@
       key = "<leader>ps";
       mode = "n";
       options = {
-        desc = "package-info: run `npm outdated --json`";
+        desc = "PackageInfo: run `npm outdated --json`";
       };
     }
     {
@@ -27,7 +27,7 @@
       key = "<leader>pv";
       mode = "n";
       options = {
-        desc = "package-info: version picker";
+        desc = "PackageInfo: version picker";
       };
     }
   ];

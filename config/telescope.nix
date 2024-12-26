@@ -20,8 +20,6 @@
 
     # provided to the require('telescope').setup function
     settings = {
-      defaults.theme = "ivy";
-
       pickers = {
         buffers = {
           mappings = {
@@ -48,7 +46,7 @@
       action = "";
       key = "<leader>f";
       mode = "n";
-      options.desc = "+find with Telescope";
+      options.desc = "+Telescope pickers";
     }
 
     # file pickers
@@ -91,6 +89,24 @@
       options.desc = "Telescope: help tags";
     }
     {
+      action = "<Cmd>Telescope jumplist<CR>";
+      key = "<leader>fj";
+      mode = "n";
+      options.desc = "Telescope: jump list";
+    }
+    {
+      action = "<Cmd>Telescope keymaps<CR>";
+      key = "<leader>fk";
+      mode = "n";
+      options.desc = "Telescope: keymaps";
+    }
+    {
+      action = "<Cmd>Telescope loclist<CR>";
+      key = "<leader>fl";
+      mode = "n";
+      options.desc = "Telescope: current window's location list";
+    }
+    {
       action = "<Cmd>Telescope marks<CR>";
       key = "<leader>fm";
       mode = "n";
@@ -100,13 +116,19 @@
       action = "<Cmd>Telescope oldfiles<CR>";
       key = "<leader>fo";
       mode = "n";
-      options.desc = "Telescope: previously opened files";
+      options.desc = "Telescope: previously opened files (oldfiles)";
     }
     {
-      action = "<Cmd>Telescope resume<CR>";
+      action = "<Cmd>Telescope quickfix<CR>";
+      key = "<leader>fq";
+      mode = "n";
+      options.desc = "Telescope: quickfix list";
+    }
+    {
+      action = "<Cmd>Telescope registers<CR>";
       key = "<leader>fr";
       mode = "n";
-      options.desc = "Telescope: resume previous picker";
+      options.desc = "Telescope: registers";
     }
     {
       action = "<Cmd>Telescope vim_options<CR>";
@@ -114,13 +136,25 @@
       mode = "n";
       options.desc = "Telescope: vim options";
     }
+    {
+      action = "<Cmd>Telescope resume<CR>";
+      key = "<leader>fx";
+      mode = "n";
+      options.desc = "Telescope: resume previous picker";
+    }
+    {
+      action = "<Cmd>Telescope pickers<CR>";
+      key = "<leader>fz";
+      mode = "n";
+      options.desc = "Telescope: previously opened pickers";
+    }
 
-    # list pickers
+    # lists pickers
     {
       action = "<Cmd>Telescope builtin<CR>";
-      key = "<leader>fp";
+      key = "<leader>ft";
       mode = "n";
-      options.desc = "Telescope: built-in pickers";
+      options.desc = "Telescope: all built-in pickers";
     }
   ];
 }

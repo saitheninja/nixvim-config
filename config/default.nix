@@ -260,7 +260,7 @@
         cssls = {
           enable = true;
           settings = {
-            css.lint.unknownAtRules = "ignore"; # ignore tailwind stuff
+            css.lint.unknownAtRules = "ignore"; # ignore tailwind `@apply`
           };
         };
         eslint.enable = true;
@@ -271,7 +271,7 @@
         tailwindcss.enable = true;
         ts_ls.enable = true; # typescript
 
-        # gdscript.enable = true;
+        #gdscript.enable = true;
         lua_ls = {
           enable = true;
           settings.telemetry.enable = false;
@@ -282,8 +282,8 @@
           installCargo = false;
           installRustc = false;
         };
-        # yamlls.enable = true;
-        zls.enable = true;
+        #yamlls.enable = true;
+        #zls.enable = true;
       };
     };
     lspkind = {
@@ -387,15 +387,15 @@
         peekDefinitionCode = {
           "<leader>d" = {
             query = "";
-            desc = "+Treesitter textobjects";
+            desc = "+Treesitter textobjects (TSTextobject)";
           };
           "<leader>df" = {
             query = "@function.outer";
-            desc = "Peek function definition";
+            desc = "TSTextobject: peek function definition";
           };
           "<leader>dF" = {
             query = "@class.outer";
-            desc = "Peek class definition";
+            desc = "TSTextobject: peek class definition";
           };
         };
       };
@@ -406,22 +406,22 @@
         gotoNextStart = {
           "]c" = {
             query = "@class.outer";
-            desc = "Next start class outer";
+            desc = "TSTextobject: next start class outer";
           };
           "]f" = {
             query = "@function.outer";
-            desc = "Next start function outer";
+            desc = "TSTextobject: next start function outer";
           };
           "]p" = {
             query = "@parameter.outer";
-            desc = "Next start parameter outer";
+            desc = "TSTextobject: next start parameter outer";
           };
 
           # You can use regex matching (i.e. lua pattern) and/or pass a list in a "query" key to group multiple queries.
           # "]o" = { query = { "@loop.inner", "@loop.outer" }; };
           "]o" = {
             query = "@loop.*";
-            desc = "Next start loop inner/outer";
+            desc = "TSTextobject: next start loop inner/outer";
           };
 
           # You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
@@ -429,55 +429,55 @@
           "]s" = {
             query = "@local.scope";
             queryGroup = "locals";
-            desc = "Next start scope";
+            desc = "TSTextobject: next start scope";
           };
           "]z" = {
             query = "@fold";
             queryGroup = "folds";
-            desc = "Next start fold";
+            desc = "TSTextobject: next start fold";
           };
         };
         gotoNextEnd = {
           "]C" = {
             query = "@class.outer";
-            desc = "Next end class outer";
+            desc = "TSTextobject: next end class outer";
           };
           "]F" = {
             query = "@function.outer";
-            desc = "Next end function outer";
+            desc = "TSTextobject: next end function outer";
           };
           "]P" = {
             query = "@parameter.outer";
-            desc = "Next end parameter outer";
+            desc = "TSTextobject: next end parameter outer";
           };
         };
 
         gotoPreviousStart = {
           "[c" = {
             query = "@class.outer";
-            desc = "Previous start class outer";
+            desc = "TSTextobject: previous start class outer";
           };
           "[f" = {
             query = "@function.outer";
-            desc = "Previous start function outer";
+            desc = "TSTextobject: previous start function outer";
           };
           "[p" = {
             query = "@parameter.outer";
-            desc = "Previous start parameter outer";
+            desc = "TSTextobject: previous start parameter outer";
           };
         };
         gotoPreviousEnd = {
           "[C" = {
             query = "@class.outer";
-            desc = "Previous end class outer";
+            desc = "TSTextobject: previous end class outer";
           };
           "[F" = {
             query = "@function.outer";
-            desc = "Previous end funtion outer";
+            desc = "TSTextobject: previous end funtion outer";
           };
           "[P" = {
             query = "@parameter.outer";
-            desc = "Previous end parameter outer";
+            desc = "TSTextobject: previous end parameter outer";
           };
         };
 
@@ -485,13 +485,13 @@
         gotoNext = {
           "]n" = {
             query = "@conditional.outer";
-            desc = "Next conditional outer";
+            desc = "TSTextobject: next conditional outer";
           };
         };
         gotoPrevious = {
           "[n" = {
             query = "@conditional.outer";
-            desc = "Previous conditional outer";
+            desc = "TSTextobject: previous conditional outer";
           };
         };
       };
@@ -506,34 +506,34 @@
           # You can use the capture groups defined in textobjects.scm
           "ac" = {
             query = "@class.outer";
-            desc = "Select outer part of a class region";
+            desc = "TSTextobject: select outer class region";
           };
           "ic" = {
             query = "@class.inner";
-            desc = "Select inner part of a class region";
+            desc = "TSTextobject: select inner class region";
           };
           "af" = {
             query = "@function.outer";
-            desc = "Select outer part of a function region";
+            desc = "TSTextobject: select outer function region";
           };
           "if" = {
             query = "@function.inner";
-            desc = "Select inner part of a function region";
+            desc = "TSTextobject: select inner function region";
           };
           "ap" = {
             query = "@parameter.outer";
-            desc = "Select outer part of a parameter region";
+            desc = "TSTextobject: select outer parameter region";
           };
           "ip" = {
             query = "@parameter.inner";
-            desc = "Select inner part of a parameter region";
+            desc = "TSTextobject: select inner parameter region";
           };
 
           # You can also use captures from other query groups like `locals.scm`
           "as" = {
             query = "@local.scope";
             queryGroup = "locals";
-            desc = "Select language scope";
+            desc = "TSTextobject: select language scope";
           };
         };
 
@@ -550,13 +550,13 @@
         swapNext = {
           "]]" = {
             query = "@parameter.inner";
-            desc = "Swap next parameter inner";
+            desc = "TSTextobject: swap next parameter inner";
           };
         };
         swapPrevious = {
           "[[" = {
             query = "@parameter.inner";
-            desc = "Swap previous parameter inner";
+            desc = "TSTextobject: swap previous parameter inner";
           };
         };
       };
@@ -737,7 +737,7 @@
         key = "<leader>bn";
         mode = "n";
         options = {
-          desc = "next";
+          desc = "Neovim buffer: next";
         };
       }
       {
@@ -745,7 +745,7 @@
         key = "<leader>bp";
         mode = "n";
         options = {
-          desc = "previous";
+          desc = "Neovim buffer: previous";
         };
       }
 
@@ -754,7 +754,7 @@
         key = "<leader>b#"; # also <C-6>, <C-^>
         mode = "n";
         options = {
-          desc = "alternate";
+          desc = "Neovim buffer: alternate";
         };
       }
 
@@ -763,7 +763,7 @@
         key = "<leader>bf";
         mode = "n";
         options = {
-          desc = "first";
+          desc = "Neovim buffer: first";
         };
       }
       {
@@ -771,7 +771,7 @@
         key = "<leader>br";
         mode = "n";
         options = {
-          desc = "rewind (same as first)";
+          desc = "Neovim buffer: rewind (same as first)";
         };
       }
       {
@@ -779,7 +779,7 @@
         key = "<leader>bl";
         mode = "n";
         options = {
-          desc = "last";
+          desc = "Neovim buffer: last";
         };
       }
 
@@ -788,7 +788,7 @@
         key = "<leader>ba";
         mode = "n";
         options = {
-          desc = "all (one window for each buffer)";
+          desc = "Neovim buffer: all (one window for each buffer)";
         };
       }
       {
@@ -796,7 +796,7 @@
         key = "<leader>bd";
         mode = "n";
         options = {
-          desc = "delete";
+          desc = "Neovim buffer: delete";
         };
       }
     ]
@@ -808,7 +808,7 @@
         key = "<leader>s";
         mode = "n";
         options = {
-          desc = "+browse Neovim sessions with auto-session";
+          desc = "+Autosession manage Neovim sessions";
         };
       }
 
@@ -817,7 +817,7 @@
         key = "<leader>ss";
         mode = "n";
         options = {
-          desc = "auto-session: search sessions (<C-s> restore, <C-d> delete)";
+          desc = "Autosession: search sessions (<C-s> restore, <C-d> delete)";
         };
       }
     ]
@@ -829,7 +829,7 @@
         key = "<leader>r";
         mode = "n";
         options = {
-          desc = "+rename instances with inc-rename";
+          desc = "+IncRename incremental find and replace";
         };
       }
       {
@@ -837,7 +837,7 @@
         key = "<leader>rn";
         mode = "n";
         options = {
-          desc = "inc-rename: start rename";
+          desc = "IncRename: start rename";
         };
       }
     ]
@@ -849,7 +849,7 @@
         key = "<leader>g";
         mode = "n";
         options = {
-          desc = "+git actions";
+          desc = "+Git actions";
         };
       }
 
@@ -889,7 +889,7 @@
         key = "<leader>o";
         mode = "n";
         options = {
-          desc = "+browse files with Oil";
+          desc = "+Oil file browser";
         };
       }
 
