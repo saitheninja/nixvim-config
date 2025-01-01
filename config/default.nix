@@ -9,7 +9,7 @@
     ./package-info.nix
     ./telescope.nix
     ./trouble.nix
-    ./ufo.nix
+    # ./ufo.nix
   ];
 
   # extra packages to install with nix
@@ -44,7 +44,8 @@
 
     # folding
     foldenable = true;
-    foldcolumn = "auto:4"; # auto width, max 4
+    foldcolumn = "0"; # fold column width
+    foldtext = ""; # set to empty string so that it doesn't mess with syntax highlighting
 
     # indents
     expandtab = true; # expand tabs to spaces
