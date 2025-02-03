@@ -219,40 +219,40 @@
         # mappings for `vim.lsp.buf.<action>()` functions
         # can't define modes from here
         # https://github.com/nix-community/nixvim/issues/1157
-        lspBuf = {
-          "gra" = {
-            action = "code_action";
-            desc = "LSP code_action";
-          };
-          "grd" = {
-            action = "definition";
-            desc = "LSP definition";
-          };
-          "grf" = {
-            action = "format";
-            desc = "LSP format";
-          };
-          "gri" = {
-            action = "implementation";
-            desc = "LSP implementation";
-          };
-          "grn" = {
-            action = "rename";
-            desc = "LSP rename";
-          };
-          "grr" = {
-            action = "references";
-            desc = "LSP references";
-          };
-          "grt" = {
-            action = "type_definition";
-            desc = "LSP type_definition";
-          };
-          "<C-s>" = {
-            action = "signature_help";
-            desc = "LSP signature_help";
-          };
-        };
+        # lspBuf = {
+        #   "gra" = {
+        #     action = "code_action";
+        #     desc = "LSP code_action";
+        #   };
+        #   "grd" = {
+        #     action = "definition";
+        #     desc = "LSP definition";
+        #   };
+        #   "grf" = {
+        #     action = "format";
+        #     desc = "LSP format";
+        #   };
+        #   "gri" = {
+        #     action = "implementation";
+        #     desc = "LSP implementation";
+        #   };
+        #   "grn" = {
+        #     action = "rename";
+        #     desc = "LSP rename";
+        #   };
+        #   "grr" = {
+        #     action = "references";
+        #     desc = "LSP references";
+        #   };
+        #   "grt" = {
+        #     action = "type_definition";
+        #     desc = "LSP type_definition";
+        #   };
+        #   "<C-s>" = {
+        #     action = "signature_help";
+        #     desc = "LSP signature_help";
+        #   };
+        # };
       };
 
       servers = {
@@ -267,11 +267,17 @@
         html.enable = true;
         jsonls.enable = true;
 
+        # formatter for JavaScript, TypeScript, JSX, JSON, CSS and GraphQL
+        # linter for JavaScript, TypeScript, JSX, CSS and GraphQL
+        # npm install --save-dev --save-exact @biomejs/biome && npx @biomejs/biome init
+        #biome.enable = true;
         svelte.enable = true;
+        # official tailwind LSP
+        # npm install @tailwindcss/language-server
         tailwindcss.enable = true;
-        ts_ls.enable = true; # typescript
+        ts_ls.enable = true; # TypeScript
 
-        #gdscript.enable = true;
+        #gdscript.enable = true; # Godot
         lua_ls = {
           enable = true;
           settings.telemetry.enable = false;
@@ -314,7 +320,10 @@
         # css = [ "stylelint" ]; # TODO disabled annoying error message when not installed
 
         javascript = [ "eslint" ];
+        javascriptreact = [ "eslint" ];
         typescript = [ "eslint" ];
+        typescriptreact = [ "eslint" ];
+        # typescriptreact = [ "biomejs" ];
         svelte = [ "eslint" ];
       };
     };
@@ -563,7 +572,8 @@
       };
     };
     ts-autotag.enable = true; # autoclose and autorename html tags using treesitter
-    ts-context-commentstring.enable = true; # automatically use correct comment syntax
+    #ts-comments.enable = true; # multiple commentstrings detected for uncomment
+    ts-context-commentstring.enable = true; # automatically use correct comment syntax for different parts of file
 
     # ui
     dressing.enable = true; # use Telescope for `vim.ui.input` & `vim.ui.select`
