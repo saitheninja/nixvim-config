@@ -5,79 +5,79 @@
   ];
 
   # debug adapter protocol
-  plugins.dap = {
-    enable = true;
+  plugins = {
+    dap-ui.enable = true;
+    dap-virtual-text.enable = true;
 
-    #adapters = {
-    #  servers = {
-    #    pwa-node = {
-    #      host = "localhost";
-    #      port = ''''${port}'';
-    #      executable = {
-    #        command = "node";
-    #        args = [
-    #          "${pkgs.vscode-js-debug}/bin/js-debug"
-    #          ''''${port}''
-    #        ];
-    #      };
-    #    };
-    #  };
-    #};
+    dap = {
+      enable = true;
 
-    configurations = {
-      svelte = [
-        {
-          type = "pwa-node"; # adapter name
-          request = "launch"; # attach or launch
-          name = "Node launch file";
-          program = ''''${file}'';
-          cwd = ''''${workspaceFolder}'';
-        }
-        {
-          type = "pwa-node";
-          request = "attach";
-          name = "Attach";
-          processId = # lua
-            ''
-              require("dap.utils").pick_process;
-            '';
-          cwd = ''''${workspaceFolder}'';
-        }
-      ];
-      #{
-      #  name = "Node attach";
-      #  request = "attach";
-      #  type = "pwa-node";
-      #  processId = # lua
-      #    ''
-      #      require'dap.utils'.pick_process
-      #    '';
-      #  cwd = "${workspaceFolder}";
+      #adapters = {
+      #  servers = {
+      #    pwa-node = {
+      #      host = "localhost";
+      #      port = ''''${port}'';
+      #      executable = {
+      #        command = "node";
+      #        args = [
+      #          "${pkgs.vscode-js-debug}/bin/js-debug"
+      #          ''''${port}''
+      #        ];
+      #      };
+      #    };
+      #  };
       #};
 
-      # typescript = {
-      #   name = "ts-launch";
-      #   request = "launch";
-      #   type = "pwa-node";
-      # };
+      configurations = {
+        svelte = [
+          {
+            type = "pwa-node"; # adapter name
+            request = "launch"; # attach or launch
+            name = "Node launch file";
+            program = ''''${file}'';
+            cwd = ''''${workspaceFolder}'';
+          }
+          {
+            type = "pwa-node";
+            request = "attach";
+            name = "Attach";
+            processId = # lua
+              ''
+                require("dap.utils").pick_process;
+              '';
+            cwd = ''''${workspaceFolder}'';
+          }
+        ];
+        #{
+        #  name = "Node attach";
+        #  request = "attach";
+        #  type = "pwa-node";
+        #  processId = # lua
+        #    ''
+        #      require'dap.utils'.pick_process
+        #    '';
+        #  cwd = "${workspaceFolder}";
+        #};
+
+        # typescript = {
+        #   name = "ts-launch";
+        #   request = "launch";
+        #   type = "pwa-node";
+        # };
+      };
     };
 
-    extensions = {
-      dap-ui.enable = true;
-      dap-virtual-text.enable = true;
-    };
+    # extraConfigLua = # lua
+    #   ''
+    #     require("dap").adapters["pwa-node"] = {
+    #       type = "server",
+    #       host = "localhost",
+    #       port = "8123",
+    #       executable = {
+    #         command = "node",
+    #         args = {"${pkgs.vscode-js-debug}/bin/js-debug", "8123"},
+    #       }
+    #     }
+    #   '';
   };
-
-  extraConfigLua = # lua
-    ''
-      require("dap").adapters["pwa-node"] = {
-        type = "server",
-        host = "localhost",
-        port = "8123",
-        executable = {
-          command = "node",
-          args = {"${pkgs.vscode-js-debug}/bin/js-debug", "8123"},
-        }
-      }
-    '';
 }
