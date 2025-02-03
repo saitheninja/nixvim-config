@@ -344,6 +344,7 @@
       };
     };
     nvim-autopairs.enable = true; # pair brackets, quotes
+    nvim-surround.enable = true; # add: `ys{motion}{char}`, delete: `ds{char}`, change: `cs{target}{replacement}`
     rainbow-delimiters.enable = true; # matching brackets get matching colours
     treesitter = {
       enable = true; # parse text as Abstract Syntax Tree (AST) for better understanding
