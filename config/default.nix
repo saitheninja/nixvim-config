@@ -311,7 +311,7 @@
       enable = true;
 
       lintersByFt = {
-        css = [ "stylelint" ];
+        # css = [ "stylelint" ]; # TODO disabled annoying error message when not installed
 
         javascript = [ "eslint" ];
         typescript = [ "eslint" ];
