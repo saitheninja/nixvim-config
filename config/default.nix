@@ -17,6 +17,7 @@
     wl-clipboard # wayland clipboard utils
     ripgrep # fast search for grug-far
     #zls # zig LSP
+    biome # JS linter and formatter
   ];
   withNodeJs = false; # install Node and Node plugin provider npm package "neovim"
   withRuby = false; # install Ruby and Ruby plugin provider gem "neovim-ruby"
@@ -319,11 +320,14 @@
       lintersByFt = {
         # css = [ "stylelint" ]; # TODO disabled annoying error message when not installed
 
-        javascript = [ "eslint" ];
-        javascriptreact = [ "eslint" ];
-        typescript = [ "eslint" ];
-        typescriptreact = [ "eslint" ];
-        # typescriptreact = [ "biomejs" ];
+        # javascript = [ "eslint" ];
+        # javascriptreact = [ "eslint" ];
+        # typescript = [ "eslint" ];
+        # typescriptreact = [ "eslint" ];
+        javascript = [ "biomejs" ];
+        javascriptreact = [ "biomejs" ];
+        typescript = [ "biomejs" ];
+        typescriptreact = [ "biomejs" ];
         svelte = [ "eslint" ];
       };
     };

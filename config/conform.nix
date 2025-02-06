@@ -12,14 +12,38 @@
 
     settings = {
       formatters_by_ft = {
-        html = [ "prettier" ];
+        html = {
+          __unkeyed-1 = "prettier";
+          __unkeyed-2 = "biome";
+          stop_after_first = true;
+        };
 
-        css = [ "prettier" ];
+        css = {
+          __unkeyed-1 = "prettier";
+          __unkeyed-2 = "biome";
+          stop_after_first = true;
+        };
 
-        javascript = [ "prettier" ];
-        javascriptreact = [ "prettier" ];
-        typescript = [ "prettier" ];
-        typescriptreact = [ "prettier" ];
+        javascript = {
+          __unkeyed-1 = "prettier";
+          __unkeyed-2 = "biome";
+          stop_after_first = true;
+        };
+        javascriptreact = {
+          __unkeyed-1 = "prettier";
+          __unkeyed-2 = "biome";
+          stop_after_first = true;
+        };
+        typescript = {
+          __unkeyed-1 = "prettier";
+          __unkeyed-2 = "biome";
+          stop_after_first = true;
+        };
+        typescriptreact = {
+          __unkeyed-1 = "prettier";
+          __unkeyed-2 = "biome";
+          stop_after_first = true;
+        };
 
         svelte = [ "prettier" ];
 
