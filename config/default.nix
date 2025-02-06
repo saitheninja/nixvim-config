@@ -17,7 +17,7 @@
     wl-clipboard # wayland clipboard utils
     ripgrep # fast search for grug-far
     #zls # zig LSP
-    # biome # JS linter and formatter
+    #biome # JS linter and formatter
   ];
   withNodeJs = false; # install Node and Node plugin provider npm package "neovim"
   withRuby = false; # install Ruby and Ruby plugin provider gem "neovim-ruby"
@@ -259,23 +259,25 @@
 
       servers = {
         # from vscode-langservers-extracted
-        cssls = {
-          enable = true;
-          settings = {
-            css.lint.unknownAtRules = "ignore"; # ignore tailwind `@apply`
-          };
-        };
-        eslint.enable = true;
+        # cssls = {
+        #   enable = true;
+        #   settings = {
+        #     css.lint.unknownAtRules = "ignore"; # ignore tailwind `@apply`
+        #   };
+        # };
+        # eslint.enable = true;
         html.enable = true;
-        jsonls.enable = true;
+        # jsonls.enable = true;
 
         svelte.enable = true;
-        ts_ls.enable = true; # TypeScript
+
+        # on Windows this is slooooooooow to start
+        # ts_ls.enable = true; # TypeScript
 
         # formatter for JavaScript, TypeScript, JSX, JSON, CSS and GraphQL
         # linter for JavaScript, TypeScript, JSX, CSS and GraphQL
         # npm install --save-dev --save-exact @biomejs/biome && npx @biomejs/biome init
-        biome.enable = true;
+        #biome.enable = true;
 
         # official tailwind LSP
         # npm install @tailwindcss/language-server
@@ -287,11 +289,11 @@
           settings.telemetry.enable = false;
         };
         nixd.enable = true;
-        rust_analyzer = {
-          enable = true;
-          installCargo = false;
-          installRustc = false;
-        };
+        # rust_analyzer = {
+        #   enable = true;
+        #   installCargo = false;
+        #   installRustc = false;
+        # };
         #yamlls.enable = true;
         #zls.enable = true;
       };
@@ -327,11 +329,14 @@
         # javascriptreact = [ "eslint" ];
         # typescript = [ "eslint" ];
         # typescriptreact = [ "eslint" ];
+        svelte = [ "eslint" ];
+
+        css = [ "biomejs" ];
         javascript = [ "biomejs" ];
         javascriptreact = [ "biomejs" ];
         typescript = [ "biomejs" ];
         typescriptreact = [ "biomejs" ];
-        svelte = [ "eslint" ];
+
       };
     };
 
