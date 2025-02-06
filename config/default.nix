@@ -47,6 +47,7 @@
     foldenable = true;
     foldcolumn = "0"; # fold column width
     foldtext = ""; # set to empty string so that it doesn't mess with syntax highlighting
+    foldlevelstart = 99; # start buffer with all folds open
 
     # indents
     expandtab = true; # expand tabs to spaces
