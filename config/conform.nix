@@ -14,34 +14,34 @@
       formatters_by_ft = {
         html = {
           __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-2 = "biomejs";
           stop_after_first = true;
         };
 
         css = {
           __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-2 = "biomejs";
           stop_after_first = true;
         };
 
         javascript = {
           __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-2 = "biomejs";
           stop_after_first = true;
         };
         javascriptreact = {
           __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-2 = "biomejs";
           stop_after_first = true;
         };
         typescript = {
           __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-2 = "biomejs";
           stop_after_first = true;
         };
         typescriptreact = {
           __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-2 = "biomejs";
           stop_after_first = true;
         };
 
