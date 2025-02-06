@@ -17,7 +17,7 @@
     wl-clipboard # wayland clipboard utils
     ripgrep # fast search for grug-far
     #zls # zig LSP
-    biome # JS linter and formatter
+    # biome # JS linter and formatter
   ];
   withNodeJs = false; # install Node and Node plugin provider npm package "neovim"
   withRuby = false; # install Ruby and Ruby plugin provider gem "neovim-ruby"
@@ -269,15 +269,17 @@
         html.enable = true;
         jsonls.enable = true;
 
+        svelte.enable = true;
+        ts_ls.enable = true; # TypeScript
+
         # formatter for JavaScript, TypeScript, JSX, JSON, CSS and GraphQL
         # linter for JavaScript, TypeScript, JSX, CSS and GraphQL
         # npm install --save-dev --save-exact @biomejs/biome && npx @biomejs/biome init
-        #biome.enable = true;
-        svelte.enable = true;
+        biome.enable = true;
+
         # official tailwind LSP
         # npm install @tailwindcss/language-server
         tailwindcss.enable = true;
-        ts_ls.enable = true; # TypeScript
 
         #gdscript.enable = true; # Godot
         lua_ls = {
