@@ -12,6 +12,12 @@
     enable = true;
 
     settings = {
+      formatters = {
+        biome = {
+          append_args = [ "--indent-style=space" ];
+        };
+      };
+
       formatters_by_ft = {
         html = {
           __unkeyed-1 = "prettier";
