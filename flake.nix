@@ -12,13 +12,7 @@
         flake-parts.follows = "flake-parts";
 
         # not using these inputs
-        devshell.follows = "";
-        flake-compat.follows = "";
-        git-hooks.follows = "";
-        home-manager.follows = "";
-        nix-darwin.follows = "";
         nuschtosSearch.follows = "";
-        treefmt-nix.follows = "";
       };
     };
   };
