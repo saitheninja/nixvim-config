@@ -24,29 +24,29 @@
         };
 
         css = {
-          __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-1 = "biome";
+          __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
 
         javascript = {
-          __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-1 = "biome";
+          __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
         javascriptreact = {
-          __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-1 = "biome";
+          __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
         typescript = {
-          __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-1 = "biome";
+          __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
         typescriptreact = {
-          __unkeyed-1 = "prettier";
-          __unkeyed-2 = "biome";
+          __unkeyed-1 = "biome";
+          __unkeyed-2 = "prettier";
           stop_after_first = true;
         };
 
