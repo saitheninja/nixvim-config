@@ -95,36 +95,40 @@
         "v"
       ];
       options = {
-        desc = "Conform: format selected text/buffer";
-      };
-    }
-    {
-      action = "<Cmd>ConformAsyncFormat<CR>";
-      key = "<leader>cc";
-      mode = [
-        "n"
-        "v"
-      ];
-      options = {
-        desc = "Conform: format selected text/buffer";
+        desc = "Conform: format buffers";
       };
     }
 
     # format on save setting
     {
       action = "<Cmd>ConformFormatOnSaveDisable!<CR>";
-      key = "<leader>cd";
+      key = "<leader>cdd";
       mode = "n";
       options = {
-        desc = "Conform: disable format on save";
+        desc = "Conform: disable format on save (buffer)";
       };
     }
     {
-      action = "<Cmd>ConformFormatOnSaveEnable<CR>";
-      key = "<leader>ce";
+      action = "<Cmd>ConformFormatOnSaveDisable<CR>";
+      key = "<leader>cdg";
       mode = "n";
       options = {
-        desc = "Conform: enable format on save";
+        desc = "Conform: disable format on save (global)";
+      };
+    }
+    {
+      action = "<Cmd>ConformFormatOnSaveEnable!<CR>";
+      key = "<leader>cee";
+      mode = "n";
+      options = {
+        desc = "Conform: enable format on save (buffer)";
+      };
+    }{
+      action = "<Cmd>ConformFormatOnSaveEnable<CR>";
+      key = "<leader>ceg";
+      mode = "n";
+      options = {
+        desc = "Conform: enable format on save (global)";
       };
     }
   ];
@@ -165,8 +169,8 @@
       command.__raw = # lua
         ''
           function(args)
+             -- ConformFormatOnSaveDisable! disables formatting just for this buffer
              if args.bang then
-               -- ConformFormatOnSaveDisable! will disable formatting just for this buffer
                vim.b.disable_format_on_save = true
              else
                vim.g.disable_format_on_save = true
@@ -177,14 +181,19 @@
     };
 
     ConformFormatOnSaveEnable = {
+      bang = true;
       command.__raw = # lua
         ''
           function()
-            vim.b.disable_format_on_save = false
-            vim.g.disable_format_on_save = false
+            if args.bang then
+              vim.b.disable_format_on_save = false
+            else
+              vim.g.disable_format_on_save = false
+            end
           end
         '';
       desc = "Enable Conform format on save";
     };
   };
 }
+
