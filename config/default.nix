@@ -277,7 +277,7 @@
         # formatter for JavaScript, TypeScript, JSX, JSON, CSS and GraphQL
         # linter for JavaScript, TypeScript, JSX, CSS and GraphQL
         # npm install --save-dev --save-exact @biomejs/biome && npx @biomejs/biome init
-        #biome.enable = true;
+        biome.enable = true;
 
         # official tailwind LSP
         # npm install @tailwindcss/language-server
