@@ -272,7 +272,7 @@
         svelte.enable = true;
 
         # on Windows this is slooooooooow to start
-        # ts_ls.enable = true; # TypeScript
+        ts_ls.enable = true; # TypeScript
 
         # formatter for JavaScript, TypeScript, JSX, JSON, CSS and GraphQL
         # linter for JavaScript, TypeScript, JSX, CSS and GraphQL
