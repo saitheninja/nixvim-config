@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   extraPackages = with pkgs; [
+    nodejs_22
     vscode-js-debug # Node debugging
   ];
 
@@ -14,6 +15,17 @@
 
       adapters = {
         servers = {
+          # pwa-node = {
+          #   host = "localhost";
+          #   port = ''''${port}'';
+          #   executable = {
+          #     command = "node";
+          #     args = [
+          #       "${pkgs.vscode-js-debug}/bin/js-debug"
+          #       ''''${port}''
+          #     ];
+          #   };
+          # };
           pwa-node = {
             host = "localhost";
             port = ''''${port}'';
@@ -25,50 +37,41 @@
               ];
             };
           };
-          pwa-node-nextjs = {
-            host = "localhost";
-            port = 9229;
-            executable = {
-              command = "node";
-              args = [
-                "${pkgs.vscode-js-debug}/bin/js-debug"
-                "9229"
-              ];
-            };
-          };
         };
       };
 
       configurations = {
-        svelte = [
-          {
-            name = "Node launch file";
-            type = "pwa-node"; # adapter name
-            request = "launch"; # attach or launch
-            program = ''''${file}'';
-            cwd = ''''${workspaceFolder}'';
-          }
-          {
-            name = "Node attach to process";
-            type = "pwa-node";
-            request = "attach";
-            processId = # lua
-              ''
-                require("dap.utils").pick_process;
-              '';
-            cwd = ''''${workspaceFolder}'';
-          }
-        ];
+        # svelte = [
+        #   {
+        #     name = "Node launch file";
+        #     type = "pwa-node"; # adapter name
+        #     request = "launch"; # "attach" or "launch"
+        #     program = ''''${file}'';
+        #     cwd = ''''${workspaceFolder}'';
+        #   }
+        #   {
+        #     name = "Node attach to process";
+        #     type = "pwa-node";
+        #     request = "attach";
+        #     processId = # lua
+        #       ''
+        #         require("dap.utils").pick_process;
+        #       '';
+        #     cwd = ''''${workspaceFolder}'';
+        #   }
+        # ];
 
         typescriptreact = [
           {
             name = "Node launch file";
-            type = "pwa-node-nextjs";
+            type = "pwa-node";
             request = "launch";
+            args = [
+              ''''${file}''
+            ];
             cwd = ''''${workspaceFolder}'';
-            args = ''''${file}'';
             sourceMaps = true;
-
+            protocol = "inspector";
           }
           {
             name = "Node attach to process";
@@ -76,31 +79,27 @@
             request = "attach";
             processId = # lua
               ''
-                require("dap.utils").pick_process;
+                require("dap.utils").pick_process
               '';
-            cwd = ''''${workspaceFolder}'';
           }
         ];
-
-        # typescript = {
-        #   name = "ts-launch";
-        #   request = "launch";
-        #   type = "pwa-node";
-        # };
       };
     };
-
-    # extraConfigLua = # lua
-    #   ''
-    #     require("dap").adapters["pwa-node"] = {
-    #       type = "server",
-    #       host = "localhost",
-    #       port = "8123",
-    #       executable = {
-    #         command = "node",
-    #         args = {"${pkgs.vscode-js-debug}/bin/js-debug", "8123"},
-    #       }
-    #     }
-    #   '';
   };
+
+  # extraConfigLua = # lua
+  #   ''
+  #     require("dap").adapters["pwa-node"] = {
+  #       type = "server",
+  #       host = "localhost",
+  #       port = "8123", # Svelte
+  #       port = "9229", # Nextjs client
+  #       port = "9230", # Nextjs server
+  #       port = ''''${port}'',
+  #       executable = {
+  #         command = "node",
+  #         args = {"${pkgs.vscode-js-debug}/bin/js-debug", "9229"},
+  #       }
+  #     }
+  #   '';
 }
