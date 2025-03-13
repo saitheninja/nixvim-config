@@ -4,19 +4,6 @@
     vscode-js-debug # Node debugging
   ];
 
-  extraConfigLua = # lua
-    ''
-      require("dap").adapters["pwa-node"] = {
-        type = "server",
-        host = "localhost",
-        port = "9229",
-        executable = {
-          command = "node",
-          args = {"${pkgs.vscode-js-debug}/bin/js-debug", "9229"},
-        }
-      }
-    '';
-
   # debug adapter protocol
   plugins = {
     dap-ui.enable = true;
@@ -25,32 +12,32 @@
     dap = {
       enable = true;
 
-      # adapters = {
-      #   servers = {
-      # pwa-node = {
-      #   host = "localhost";
-      #   port = ''''${port}'';
-      #   executable = {
-      #     command = "node";
-      #     args = [
-      #       "${pkgs.vscode-js-debug}/bin/js-debug"
-      #       ''''${port}''
-      #     ];
-      #   };
-      # };
-      # pwa-node = {
-      #   host = "localhost";
-      #   port = 9229;
-      #   executable = {
-      #     command = "${pkgs.nodejs_22}";
-      #     args = [
-      #       "${pkgs.vscode-js-debug}/bin/js-debug"
-      #       "9229"
-      #     ];
-      #   };
-      # };
-      #   };
-      # };
+      adapters = {
+        servers = {
+          # pwa-node = {
+          #   host = "localhost";
+          #   port = ''''${port}'';
+          #   executable = {
+          #     command = "node";
+          #     args = [
+          #       "${pkgs.vscode-js-debug}/bin/js-debug"
+          #       ''''${port}''
+          #     ];
+          #   };
+          # };
+          pwa-node = {
+            host = "localhost";
+            port = 9229;
+            executable = {
+              command = "${pkgs.nodejs_22}/node";
+              args = [
+                "${pkgs.vscode-js-debug}/bin/js-debug"
+                "9229"
+              ];
+            };
+          };
+        };
+      };
 
       configurations = {
         svelte = [
@@ -93,8 +80,19 @@
           }
         ];
       };
-
     };
   };
 
+  # extraConfigLua = # lua
+  #   ''
+  #     require("dap").adapters["pwa-node"] = {
+  #       type = "server",
+  #       host = "localhost",
+  #       port = "8123",
+  #       executable = {
+  #         command = "node",
+  #         args = {"${pkgs.vscode-js-debug}/bin/js-debug", "8123"},
+  #       }
+  #     }
+  #   '';
 }
