@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   extraPackages = with pkgs; [
     vscode-js-debug # Node debugging
@@ -29,7 +29,7 @@
             host = "localhost";
             port = 9229;
             executable = {
-              command = "node";
+              command = "${lib.getExe pkgs.nodejs_22}";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
                 "9229"
@@ -72,7 +72,7 @@
           }
           {
             name = "Node attach to process";
-            type = "pwa-node";
+            type = "pwa-node-nextjs";
             request = "attach";
             processId = # lua
               ''
