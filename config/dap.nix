@@ -14,19 +14,19 @@
 
       adapters = {
         servers = {
+          # pwa-node = {
+          #   host = "localhost";
+          #   port = ''''${port}'';
+          #   executable = {
+          #     command = "node";
+          #     args = [
+          #       "${pkgs.vscode-js-debug}/bin/js-debug"
+          #       ''''${port}''
+          #     ];
+          #   };
+          # };
           pwa-node = {
             host = "localhost";
-            port = ''''${port}'';
-            executable = {
-              command = "node";
-              args = [
-                "${pkgs.vscode-js-debug}/bin/js-debug"
-                ''''${port}''
-              ];
-            };
-          };
-          pwa-node-nextjs = {
-            host = "127.0.0.1";
             port = 9229;
             executable = {
               command = "node";
@@ -63,18 +63,18 @@
         typescriptreact = [
           {
             name = "Node launch file";
-            type = "pwa-node-nextjs";
+            type = "pwa-node";
             request = "launch";
             cwd = ''''${workspaceFolder}'';
             args = ''''${file}'';
           }
           {
             name = "Node attach to process";
-            type = "pwa-node-nextjs";
+            type = "pwa-node";
             request = "attach";
             processId = # lua
               ''
-                require("dap.utils").pick_process;
+                require "dap.utils".pick_process;
               '';
             cwd = ''''${workspaceFolder}'';
           }
