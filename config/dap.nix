@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   extraPackages = with pkgs; [
     vscode-js-debug # Node debugging
@@ -29,7 +29,7 @@
             host = "localhost";
             port = 9229;
             executable = {
-              command = "${pkgs.nodejs_22}/bin/node";
+              command = lib.getExe pkgs.nodejs_22;
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
                 "9229"
