@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 {
   extraPackages = with pkgs; [
     vscode-js-debug # Node debugging
@@ -14,28 +14,28 @@
 
       adapters = {
         servers = {
-          # pwa-node = {
-          #   host = "localhost";
-          #   port = ''''${port}'';
-          #   executable = {
-          #     command = "node";
-          #     args = [
-          #       "${pkgs.vscode-js-debug}/bin/js-debug"
-          #       ''''${port}''
-          #     ];
-          #   };
-          # };
           pwa-node = {
             host = "localhost";
-            port = 9229;
+            port = ''''${port}'';
             executable = {
               command = "node";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
-                "9229"
+                ''''${port}''
               ];
             };
           };
+          # pwa-node = {
+          #   host = "localhost";
+          #   port = 9229;
+          #   executable = {
+          #     command = "node";
+          #     args = [
+          #       "${pkgs.vscode-js-debug}/bin/js-debug"
+          #       "9229"
+          #     ];
+          #   };
+          # };
         };
       };
 
@@ -44,7 +44,7 @@
           {
             name = "Node launch file";
             type = "pwa-node"; # adapter name
-            request = "launch"; # attach or launch
+            request = "launch"; # "attach" or "launch"
             program = ''''${file}'';
             cwd = ''''${workspaceFolder}'';
           }
@@ -66,7 +66,7 @@
             type = "pwa-node";
             request = "launch";
             cwd = ''''${workspaceFolder}'';
-            args = ''''${file}'';
+            program = ''''${file}'';
           }
           {
             name = "Node attach to process";
