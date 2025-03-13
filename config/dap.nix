@@ -82,7 +82,7 @@
       };
     };
 
-    extraConfigLua = # lua
+    luaConfig = # lua
       ''
         require("dap").adapters["pwa-node"] = {
           type = "server",
