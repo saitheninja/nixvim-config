@@ -29,9 +29,9 @@
             host = "localhost";
             port = 9229;
             executable = {
-              command = "${pkgs.nodejs_22}";
+              command = "node";
               args = [
-                "${pkgs.vscode-js-debug}/bin/js-debug"
+                "${pkgs.vscode-js-debug}/src/dapDebugServer.js"
                 "9229"
               ];
             };
