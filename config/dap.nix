@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   extraPackages = with pkgs; [
+    nodejs_22
     vscode-js-debug # Node debugging
   ];
 
@@ -65,6 +66,7 @@
             name = "Node launch file";
             type = "pwa-node";
             request = "launch";
+            program = ''''${file}'';
             cwd = ''''${workspaceFolder}'';
           }
           {
