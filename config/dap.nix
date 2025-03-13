@@ -18,7 +18,7 @@
             host = "localhost";
             port = ''''${port}'';
             executable = {
-              command = "node";
+              # command = "node";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
                 ''''${port}''
