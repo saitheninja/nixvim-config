@@ -25,6 +25,17 @@
               ];
             };
           };
+          pwa-node-nextjs = {
+            host = "localhost";
+            port = 9229;
+            executable = {
+              command = "node";
+              args = [
+                "${pkgs.vscode-js-debug}/bin/js-debug"
+                "9229"
+              ];
+            };
+          };
         };
       };
 
@@ -52,12 +63,11 @@
         typescriptreact = [
           {
             name = "Node launch file";
-            type = "pwa-node";
+            type = "pwa-node-nextjs";
             request = "launch";
             cwd = ''''${workspaceFolder}'';
             args = ''''${file}'';
             sourceMaps = true;
-            protocol = "inspector";
 
           }
           {
