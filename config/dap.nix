@@ -31,7 +31,7 @@
             executable = {
               command = "node";
               args = [
-                "${pkgs.vscode-js-debug}/src/dapDebugServer.js"
+                "${pkgs.vscode-js-debug}/bin/js-debug"
                 "9229"
               ];
             };
