@@ -18,7 +18,7 @@
             host = "localhost";
             port = ''''${port}'';
             executable = {
-              # command = "node";
+              command = "node";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
                 ''''${port}''
@@ -67,6 +67,7 @@
             request = "launch";
             cwd = ''''${workspaceFolder}'';
             program = ''''${file}'';
+            runtimeExecutable = "node";
           }
           {
             name = "Node attach to process";
