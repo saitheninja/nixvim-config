@@ -40,25 +40,25 @@
       };
 
       configurations = {
-        svelte = [
-          {
-            name = "Node launch file";
-            type = "pwa-node"; # adapter name
-            request = "launch"; # "attach" or "launch"
-            program = ''''${file}'';
-            cwd = ''''${workspaceFolder}'';
-          }
-          {
-            name = "Node attach to process";
-            type = "pwa-node";
-            request = "attach";
-            processId = # lua
-              ''
-                require("dap.utils").pick_process;
-              '';
-            cwd = ''''${workspaceFolder}'';
-          }
-        ];
+        # svelte = [
+        #   {
+        #     name = "Node launch file";
+        #     type = "pwa-node"; # adapter name
+        #     request = "launch"; # "attach" or "launch"
+        #     program = ''''${file}'';
+        #     cwd = ''''${workspaceFolder}'';
+        #   }
+        #   {
+        #     name = "Node attach to process";
+        #     type = "pwa-node";
+        #     request = "attach";
+        #     processId = # lua
+        #       ''
+        #         require("dap.utils").pick_process;
+        #       '';
+        #     cwd = ''''${workspaceFolder}'';
+        #   }
+        # ];
 
         typescriptreact = [
           {
@@ -66,8 +66,6 @@
             type = "pwa-node";
             request = "launch";
             cwd = ''''${workspaceFolder}'';
-            program = ''''${file}'';
-            runtimeExecutable = "node";
           }
           {
             name = "Node attach to process";
@@ -77,7 +75,7 @@
               ''
                 require("dap.utils").pick_process
               '';
-            cwd = ''''${workspaceFolder}'';
+            cwd = ".";
           }
         ];
       };
