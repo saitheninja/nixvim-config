@@ -12,35 +12,35 @@
     dap = {
       enable = true;
 
-      #adapters = {
-      #  servers = {
-      #    pwa-node = {
-      #      host = "localhost";
-      #      port = ''''${port}'';
-      #      executable = {
-      #        command = "node";
-      #        args = [
-      #          "${pkgs.vscode-js-debug}/bin/js-debug"
-      #          ''''${port}''
-      #        ];
-      #      };
-      #    };
-      #  };
-      #};
+      adapters = {
+        servers = {
+          pwa-node = {
+            host = "localhost";
+            port = ''''${port}'';
+            executable = {
+              command = "node";
+              args = [
+                "${pkgs.vscode-js-debug}/bin/js-debug"
+                ''''${port}''
+              ];
+            };
+          };
+        };
+      };
 
       configurations = {
         svelte = [
           {
+            name = "Node launch file";
             type = "pwa-node"; # adapter name
             request = "launch"; # attach or launch
-            name = "Node launch file";
             program = ''''${file}'';
             cwd = ''''${workspaceFolder}'';
           }
           {
+            name = "Node attach to process";
             type = "pwa-node";
             request = "attach";
-            name = "Attach";
             processId = # lua
               ''
                 require("dap.utils").pick_process;
@@ -48,16 +48,29 @@
             cwd = ''''${workspaceFolder}'';
           }
         ];
-        #{
-        #  name = "Node attach";
-        #  request = "attach";
-        #  type = "pwa-node";
-        #  processId = # lua
-        #    ''
-        #      require'dap.utils'.pick_process
-        #    '';
-        #  cwd = "${workspaceFolder}";
-        #};
+
+        typescriptreact = [
+          {
+            name = "Node launch file";
+            type = "pwa-node";
+            request = "launch";
+            cwd = ''''${workspaceFolder}'';
+            args = ''''${file}'';
+            sourceMaps = true;
+            protocol = "inspector";
+
+          }
+          {
+            name = "Node attach to process";
+            type = "pwa-node";
+            request = "attach";
+            processId = # lua
+              ''
+                require("dap.utils").pick_process;
+              '';
+            cwd = ''''${workspaceFolder}'';
+          }
+        ];
 
         # typescript = {
         #   name = "ts-launch";
