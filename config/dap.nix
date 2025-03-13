@@ -14,28 +14,28 @@
 
       adapters = {
         servers = {
-          pwa-node = {
-            host = "localhost";
-            port = ''''${port}'';
-            executable = {
-              command = "node";
-              args = [
-                "${pkgs.vscode-js-debug}/bin/js-debug"
-                ''''${port}''
-              ];
-            };
-          };
           # pwa-node = {
           #   host = "localhost";
-          #   port = 9229;
+          #   port = ''''${port}'';
           #   executable = {
           #     command = "node";
           #     args = [
           #       "${pkgs.vscode-js-debug}/bin/js-debug"
-          #       "9229"
+          #       ''''${port}''
           #     ];
           #   };
           # };
+          pwa-node = {
+            host = "localhost";
+            port = 9229;
+            executable = {
+              # command = "node";
+              command = "${pkgs.vscode-js-debug}/bin/js-debug";
+              args = [
+                "9229"
+              ];
+            };
+          };
         };
       };
 
