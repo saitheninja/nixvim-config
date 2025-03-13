@@ -29,7 +29,7 @@
             host = "localhost";
             port = 9229;
             executable = {
-              command = "${pkgs.nodejs_22}/node";
+              command = "${pkgs.nodejs_22}/bin/node";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
                 "9229"
