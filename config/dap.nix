@@ -29,7 +29,11 @@
             host = "127.0.0.1";
             port = 9229;
             executable = {
-              command = "${pkgs.vscode-js-debug}/bin/js-debug";
+              command = "node";
+              args = [
+                "${pkgs.vscode-js-debug}/bin/js-debug"
+                "9229"
+              ];
             };
           };
         };
@@ -61,8 +65,8 @@
             name = "Node launch file";
             type = "pwa-node-nextjs";
             request = "launch";
-            cwd = "''${workspaceFolder}";
-            args = "''${file}";
+            cwd = ''''${workspaceFolder}'';
+            args = ''''${file}'';
           }
           {
             name = "Node attach to process";
@@ -72,7 +76,7 @@
               ''
                 require("dap.utils").pick_process;
               '';
-            cwd = "''${workspaceFolder}";
+            cwd = ''''${workspaceFolder}'';
           }
         ];
 
