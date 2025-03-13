@@ -80,36 +80,36 @@
         #   }
         # ];
       };
+
+      luaConfig = # lua
+        ''
+          require("dap").adapters["pwa-node"] = {
+            type = "server",
+            host = "localhost",
+            port = "9229",
+            executable = {
+              command = "node",
+              args = {"${pkgs.vscode-js-debug}/bin/js-debug", "9229"},
+            }
+          }
+
+          require("dap").configurations.typescriptreact = {
+            {
+              type = "pwa-node",
+              request = "launch",
+              name = "Launch file",
+              program = "''${file}",
+              cwd = "''${workspaceFolder}",
+            },
+            {
+              name = "Node attach to process";
+              type = "pwa-node";
+              request = "attach";
+              processId = require("dap.utils").pick_process
+              cwd = "''${workspaceFolder}";
+            }
+          }
+        '';
     };
-
-    luaConfig = # lua
-      ''
-        require("dap").adapters["pwa-node"] = {
-          type = "server",
-          host = "localhost",
-          port = "9229",
-          executable = {
-            command = "node",
-            args = {"${pkgs.vscode-js-debug}/bin/js-debug", "9229"},
-          }
-        }
-
-        require("dap").configurations.typescriptreact = {
-          {
-            type = "pwa-node",
-            request = "launch",
-            name = "Launch file",
-            program = "''${file}",
-            cwd = "''${workspaceFolder}",
-          },
-          {
-            name = "Node attach to process";
-            type = "pwa-node";
-            request = "attach";
-            processId = require("dap.utils").pick_process
-            cwd = "''${workspaceFolder}";
-          }
-        }
-      '';
   };
 }
