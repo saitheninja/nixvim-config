@@ -28,18 +28,12 @@
           # };
           pwa-node = {
             host = "localhost";
-            port = # sh
-              ''
-                ''${port}
-              '';
+            port = ''''${port}'';
             executable = {
               command = "node";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
-                # sh
-                ''
-                  ''${port}
-                ''
+                ''''${port}''
               ];
             };
           };
@@ -73,15 +67,9 @@
             type = "pwa-node";
             request = "launch";
             args = [
-              # sh
-              ''
-                ''${file}
-              ''
+              ''''${file}''
             ];
-            cwd = # sh
-              ''
-                ''${workspaceFolder}
-              '';
+            cwd = ''''${workspaceFolder}'';
             sourceMaps = true;
             protocol = "inspector";
           }
