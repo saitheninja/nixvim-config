@@ -28,12 +28,18 @@
           # };
           pwa-node = {
             host = "localhost";
-            port = 9229;
+            port = # sh
+              ''
+                ''${port}
+              '';
             executable = {
               command = "node";
               args = [
                 "${pkgs.vscode-js-debug}/bin/js-debug"
-                "9229"
+                # sh
+                ''
+                  ''${port}
+                ''
               ];
             };
           };
@@ -66,8 +72,18 @@
             name = "Node launch file";
             type = "pwa-node";
             request = "launch";
-            program = ''''${file}'';
-            cwd = ''''${workspaceFolder}'';
+            args = [
+              # sh
+              ''
+                ''${file}
+              ''
+            ];
+            cwd = # sh
+              ''
+                ''${workspaceFolder}
+              '';
+            sourceMaps = true;
+            protocol = "inspector";
           }
           {
             name = "Node attach to process";
@@ -77,7 +93,6 @@
               ''
                 require("dap.utils").pick_process
               '';
-            cwd = ".";
           }
         ];
       };
@@ -89,10 +104,13 @@
   #     require("dap").adapters["pwa-node"] = {
   #       type = "server",
   #       host = "localhost",
-  #       port = "8123",
+  #       port = "8123", # Svelte
+  #       port = "9229", # Nextjs client
+  #       port = "9230", # Nextjs server
+  #       port = ''''${port}'',
   #       executable = {
   #         command = "node",
-  #         args = {"${pkgs.vscode-js-debug}/bin/js-debug", "8123"},
+  #         args = {"${pkgs.vscode-js-debug}/bin/js-debug", "9229"},
   #       }
   #     }
   #   '';
