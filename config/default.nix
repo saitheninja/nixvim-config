@@ -305,7 +305,7 @@
     ++ [
       {
         action = "<Cmd>lua vim.lsp.buf.code_action()<CR>";
-        key = "<C-.>";
+        key = "<leader>.";
         mode = "n";
         options = {
           desc = "LSP show code actions";
