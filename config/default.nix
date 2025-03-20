@@ -298,7 +298,7 @@
           desc = "GrugFar: open in new vertical split buffer";
         };
       }
-    ];
+    ]
 
     # LSP
     ++ [
@@ -310,5 +310,5 @@
           desc = "LSP show code actions";
         };
       }
-    ]
+    ];
 }
