@@ -201,7 +201,7 @@
       preset = "default"; # "default" requires nerd font, "codicons" requires vscode-codicons font
     };
     inc-rename.enable = true; # preview rename while typing
-    typescript-tools.enable; # faster & better integrated lsp as a replacement for typescript-language-server
+    typescript-tools.enable = true; # faster & better integrated lsp as a replacement for typescript-language-server
 
     # linting
     lint = {
