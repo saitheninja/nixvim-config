@@ -299,4 +299,16 @@
         };
       }
     ];
+
+    # LSP
+    ++ [
+      {
+        action = "<Cmd>lua vim.lsp.buf.code_action()<CR>";
+        key = "<C-.>";
+        mode = "n";
+        options = {
+          desc = "LSP show code actions";
+        };
+      }
+    ]
 }
