@@ -298,5 +298,17 @@
           desc = "GrugFar: open in new vertical split buffer";
         };
       }
+    ]
+
+    # LSP
+    ++ [
+      {
+        action = "<Cmd>lua vim.lsp.buf.code_action()<CR>";
+        key = "<leader>.";
+        mode = "n";
+        options = {
+          desc = "LSP show code actions";
+        };
+      }
     ];
 }
