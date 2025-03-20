@@ -156,7 +156,7 @@
         svelte.enable = true;
 
         # on Windows this is slooooooooow to start
-        ts_ls.enable = true; # TypeScript
+        #ts_ls.enable = true; # TypeScript
 
         # formatter for JavaScript, TypeScript, JSX, JSON, CSS and GraphQL
         # linter for JavaScript, TypeScript, JSX, CSS and GraphQL
@@ -201,6 +201,7 @@
       preset = "default"; # "default" requires nerd font, "codicons" requires vscode-codicons font
     };
     inc-rename.enable = true; # preview rename while typing
+    typescript-tools.enable = true; # faster & better integrated lsp as a replacement for typescript-language-server
 
     # linting
     lint = {
