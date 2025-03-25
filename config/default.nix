@@ -167,6 +167,9 @@
         # npm install @tailwindcss/language-server
         tailwindcss.enable = true;
 
+        # PHP
+        phpactor.enable = true;
+
         #gdscript.enable = true; # Godot
         lua_ls = {
           enable = true;
