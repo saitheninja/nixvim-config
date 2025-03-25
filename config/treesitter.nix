@@ -1,7 +1,7 @@
 {
   plugins = {
-    # treesitter
     comment.enable = true; # "gc{object/motion}" and "gb{object}" to comment
+
     indent-blankline = {
       enable = true; # show indent guides
 
@@ -15,9 +15,13 @@
         };
       };
     };
+
     nvim-autopairs.enable = true; # pair brackets, quotes
+
     nvim-surround.enable = true; # add: `ys{motion}{char}`, delete: `ds{char}`, change: `cs{target}{replacement}`
+
     rainbow-delimiters.enable = true; # matching brackets get matching colours
+
     treesitter = {
       enable = true; # parse text as Abstract Syntax Tree (AST) for better understanding
 
@@ -42,6 +46,7 @@
         # };
       };
     };
+
     treesitter-context = {
       enable = true; # sticky scope
 
@@ -50,6 +55,7 @@
         max_lines = 4;
       };
     };
+
     treesitter-textobjects = {
       enable = true;
 
@@ -234,30 +240,68 @@
         };
       };
     };
+
+    treesj = {
+      enable = true;
+      settings.use_default_keymaps = false;
+    };
+
     ts-autotag.enable = true; # autoclose and autorename html tags using treesitter
+
     #ts-comments.enable = true; # multiple commentstrings detected for uncomment
+
     ts-context-commentstring.enable = true; # automatically use correct comment syntax for different parts of file
   };
 
-  keymaps = [
-    {
-      action = "";
-      key = "<leader>t";
-      mode = "n";
-      options = {
-        desc = "+Treesitter features";
-      };
-    }
+  keymaps =
+    [
+      {
+        action = "";
+        key = "<leader>t";
+        mode = "n";
+        options = {
+          desc = "+Treesitter features";
+        };
+      }
 
-    {
-      action = "<Cmd>TSContextToggle<CR>";
-      key = "<leader>tc";
-      mode = "n";
-      options = {
-        desc = "Treesitter: toggle sticky context";
-      };
-    }
-  ];
+      # sticky context
+      {
+        action = "<Cmd>TSContextToggle<CR>";
+        key = "<leader>tc";
+        mode = "n";
+        options = {
+          desc = "Treesitter: toggle sticky context";
+        };
+      }
+    ]
+    ++
+    # treesj split, join, toggle
+    [
+      {
+        action = "<Cmd>TSJSplit<CR>";
+        key = "<leader>ts";
+        mode = "n";
+        options = {
+          desc = "TSJ: Split";
+        };
+      }
+      {
+        action = "<Cmd>TSJJoin<CR>";
+        key = "<leader>tj";
+        mode = "n";
+        options = {
+          desc = "TSJ: Join";
+        };
+      }
+      {
+        action = "<Cmd>TSJToggle<CR>";
+        key = "<leader>tt";
+        mode = "n";
+        options = {
+          desc = "TSJ: Toggle";
+        };
+      }
+    ];
 
   extraConfigLua = # lua
     ''
