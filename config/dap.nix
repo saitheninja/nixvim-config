@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   extraPackages = with pkgs; [
-    nodejs_22
+    #nodejs_22
     vscode-js-debug # Node debugging
   ];
 
