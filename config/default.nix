@@ -21,10 +21,6 @@
 
   # Install dependencies for plugins
   dependencies = {
-    # Fuzzy find
-    # telescope (replaced with telescope-fzf-native)
-    fzf.enable = false;
-
     # Node
     # dap, treesitter (required to build treesitter grammars if not using `nixGrammars`)
     nodejs.enable = false;
