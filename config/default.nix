@@ -21,9 +21,17 @@
 
   # Install dependencies for plugins
   dependencies = {
-    fzf.enable = true; # fuzzy find for telescope
-    nodejs.enable = false; # required to build treesitter grammars if not using `nixGrammars`, also dap
-    ripgrep.enable = true; # faster grep search for telescope, grug-far
+    # Fuzzy find
+    # telescope (replaced with telescope-fzf-native)
+    fzf.enable = false;
+
+    # Node
+    # dap, treesitter (required to build treesitter grammars if not using `nixGrammars`)
+    nodejs.enable = false;
+
+    # Faster grep search
+    # telescope, grug-far
+    ripgrep.enable = true;
   };
 
   plugins = {
