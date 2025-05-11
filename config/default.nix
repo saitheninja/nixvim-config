@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   # Import all configuration modules here
@@ -29,6 +29,10 @@
     # telescope, grug-far
     ripgrep.enable = true;
   };
+
+  extraPackages = with pkgs; [
+    gdtoolkit_4 # Godot gdformat, gdlint
+  ];
 
   plugins = {
     # language servers
@@ -105,7 +109,10 @@
         # PHP
         phpactor.enable = true;
 
-        #gdscript.enable = true; # Godot
+        gdscript = {
+          enable = true; # Godot
+          package = null; # LSP is built into Godot - connect to running engine via port 6005
+        };
         lua_ls = {
           enable = true;
           settings.telemetry.enable = false;
@@ -159,6 +166,7 @@
         typescript = [ "biomejs" ];
         typescriptreact = [ "biomejs" ];
 
+        gdscript = [ "gdlint" ];
       };
     };
 

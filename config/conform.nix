@@ -2,9 +2,10 @@
 
 {
   extraPackages = with pkgs; [
+    biome # TypeScript
+    gdtoolkit_4 # Godot gdformat, gdlint
     nixfmt-rfc-style
     stylua
-    biome # TypeScript
   ];
 
   # formatter
@@ -57,6 +58,7 @@
 
         markdown = [ "prettier" ];
 
+        gdscript = [ "gdformat" ];
         lua = [ "stylua" ];
         nix = [ "nixfmt" ];
         rust = [ "rustfmt" ];
