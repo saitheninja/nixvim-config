@@ -6,6 +6,7 @@
     ./options.nix
 
     # plugins
+    ./auto-session.nix
     ./cmp.nix
     ./conform.nix
     ./dap.nix
@@ -169,39 +170,15 @@
     # ui
     dressing.enable = true; # use Telescope for `vim.ui.input` & `vim.ui.select`
     fidget.enable = true; # notifications & lsp progress
+    grug-far.enable = true; # find and replace
     scrollview.enable = true; # scrollbar with indicators for diagnostics
     web-devicons.enable = true; # file type icons
     which-key.enable = true; # show shortcuts
-
-    # ...rest
-    auto-session.enable = true; # session manager
-    grug-far.enable = true; # find and replace
   };
 
   keymaps =
-    # auto-session
-    [
-      {
-        action = "";
-        key = "<leader>s";
-        mode = "n";
-        options = {
-          desc = "+Autosession manage Neovim sessions";
-        };
-      }
-
-      {
-        action = "<Cmd>Autosession search<CR>";
-        key = "<leader>ss";
-        mode = "n";
-        options = {
-          desc = "Autosession: search sessions (<C-s> restore, <C-d> delete)";
-        };
-      }
-    ]
-
     # inc-rename
-    ++ [
+    [
       {
         action = "";
         key = "<leader>r";
