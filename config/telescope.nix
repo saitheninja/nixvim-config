@@ -3,8 +3,6 @@
 {
   extraPackages = with pkgs; [
     fd # better find
-    fzf # fuzzy find
-    ripgrep # faster grep
   ];
 
   # popup fuzzy finder, with previews

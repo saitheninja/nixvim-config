@@ -17,11 +17,12 @@
     ./trouble.nix
   ];
 
-  # extra packages to install with nix
-  extraPackages = with pkgs; [
-    ripgrep # fast search for grug-far
-    #zls # zig LSP
-  ];
+  # Install dependencies for plugins
+  dependencies = {
+    fzf.enable = true; # fuzzy find for telescope
+    nodejs.enable = false; # required to build treesitter grammars if not using `nixGrammars`, also dap
+    ripgrep.enable = true; # faster grep search for telescope, grug-far
+  };
 
   plugins = {
     # completions

@@ -4,7 +4,7 @@
   extraPackages = with pkgs; [
     nixfmt-rfc-style
     stylua
-    biome
+    biome # TypeScript
   ];
 
   # formatter
@@ -129,7 +129,8 @@
       options = {
         desc = "Conform: enable format on save (buffer)";
       };
-    }{
+    }
+    {
       action = "<Cmd>ConformFormatOnSaveEnable<CR>";
       key = "<leader>ceg";
       mode = "n";
@@ -202,4 +203,3 @@
     };
   };
 }
-
