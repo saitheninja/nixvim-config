@@ -176,6 +176,7 @@
     fidget.enable = true; # notifications & lsp progress
     grug-far.enable = true; # find and replace
     scrollview.enable = true; # scrollbar with indicators for diagnostics
+    visual-whitespace.enable = true; # display white space characters in visual mode
     web-devicons.enable = true; # file type icons
     which-key.enable = true; # show shortcuts
   };
