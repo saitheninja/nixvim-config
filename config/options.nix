@@ -139,7 +139,7 @@
     [
       {
         action = "<Cmd>wa<CR>";
-        key = "<leader>w";
+        key = "<leader>wa";
         mode = "n";
         options = {
           desc = "Neovim: write all";
