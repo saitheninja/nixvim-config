@@ -131,7 +131,7 @@
     lspkind = {
       enable = true; # add pictograms for LSP completion items
 
-      cmp = {
+      settings.cmp = {
         enable = true; # format nvim-cmp menu
 
         menu = {
@@ -143,8 +143,8 @@
           emoji = "[Emoji]";
         };
       };
-      mode = "symbol_text"; # "text", "text_symbol", "symbol_text", "symbol"
-      preset = "default"; # "default" requires nerd font, "codicons" requires vscode-codicons font
+      settings.mode = "symbol_text"; # "text", "text_symbol", "symbol_text", "symbol"
+      settings.preset = "default"; # "default" requires nerd font, "codicons" requires vscode-codicons font
     };
     inc-rename.enable = true; # preview rename while typing
 

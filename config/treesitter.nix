@@ -58,7 +58,7 @@
     treesitter-textobjects = {
       enable = true;
 
-      lspInterop = {
+      settings.lsp_interop = {
         enable = true;
 
         border = "double";
@@ -78,7 +78,7 @@
         };
       };
 
-      move = {
+      settings.move = {
         enable = true;
 
         gotoNextStart = {
@@ -174,7 +174,7 @@
         };
       };
 
-      select = {
+      settings.select = {
         enable = true;
 
         includeSurroundingWhitespace = true;
@@ -222,7 +222,7 @@
         # };
       };
 
-      swap = {
+      settings.swap = {
         enable = true;
 
         swapNext = {
