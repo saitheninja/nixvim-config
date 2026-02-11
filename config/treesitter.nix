@@ -25,7 +25,7 @@
     treesitter = {
       enable = true; # parse text as Abstract Syntax Tree (AST) for better understanding
 
-      folding = true;
+      folding.enable = true;
       nixvimInjections = true; # enable nixvim specific injections, like lua highlighting in extraConfigLua
       nixGrammars = true; # default true
 
