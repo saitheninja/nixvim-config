@@ -171,18 +171,9 @@
       };
     };
 
-    # testing
-    #neotest = {
-    #  enable = true;
-    #
-    #  adapters = {
-    #    vitest.enable = true;
-    #  };
-    #};
-
     # ui
     dressing.enable = true; # use Telescope for `vim.ui.input` & `vim.ui.select`
-    fidget.enable = true; # notifications & lsp progress
+    fidget.enable = true; # notifications & LSP progress in bottom right
     grug-far.enable = true; # find and replace
     scrollview.enable = true; # scrollbar with indicators for diagnostics
     web-devicons.enable = true; # file type icons
@@ -209,7 +200,10 @@
           desc = "IncRename: start rename";
         };
       }
+    ]
 
+    # grug-far
+    ++ [
       {
         action = "<Cmd>GrugFar<CR>";
         key = "<leader>rg";
