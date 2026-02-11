@@ -2,16 +2,16 @@
 {
   extraPackages = with pkgs; [
     #nodejs_22
-    vscode-js-debug # Node debugging
+    #vscode-js-debug # Node debugging
   ];
 
   # debug adapter protocol
   plugins = {
-    dap-ui.enable = true;
-    dap-virtual-text.enable = true;
+    dap-ui.enable = false;
+    dap-virtual-text.enable = false;
 
     dap = {
-      enable = true;
+      enable = false;
 
       adapters = {
         servers = {
