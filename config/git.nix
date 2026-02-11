@@ -1,9 +1,9 @@
 {
   plugins = {
-    # git diffview tabpage, merge tool, file history
+    # diffview tabpage, merge tool, file history
     diffview.enable = true;
 
-    # git diffs as coloured symbols in signcolumn
+    # diffs as coloured symbols in signcolumn
     gitsigns = {
       enable = true;
       settings.current_line_blame_opts.delay = 0;
@@ -21,7 +21,6 @@
 
   keymaps = [
     {
-      # git
       action = "";
       key = "<leader>g";
       mode = "n";

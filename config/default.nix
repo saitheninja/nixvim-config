@@ -160,7 +160,7 @@
         key = "<leader>r";
         mode = "n";
         options = {
-          desc = "+IncRename & GrugFar incremental find and replace";
+          desc = "+IncRename & GrugFar find and replace";
         };
       }
 
