@@ -1,5 +1,3 @@
-{ pkgs, ... }:
-
 {
   # Import all configuration modules here
   imports = [
@@ -11,6 +9,7 @@
     ./conform.nix
     ./dap.nix
     ./git.nix
+    ./lint.nix
     ./lualine.nix
     ./oil.nix
     ./package-info.nix
@@ -30,10 +29,6 @@
     # telescope, grug-far
     ripgrep.enable = true;
   };
-
-  extraPackages = with pkgs; [
-    gdtoolkit_4 # Godot gdformat, gdlint
-  ];
 
   plugins = {
     # language servers
@@ -147,29 +142,6 @@
       settings.preset = "default"; # "default" requires nerd font, "codicons" requires vscode-codicons font
     };
     inc-rename.enable = true; # preview rename while typing
-
-    # linting
-    lint = {
-      enable = true;
-
-      lintersByFt = {
-        # css = [ "stylelint" ]; # disabled because of annoying error message when not installed
-
-        # javascript = [ "eslint" ];
-        # javascriptreact = [ "eslint" ];
-        # typescript = [ "eslint" ];
-        # typescriptreact = [ "eslint" ];
-        svelte = [ "eslint" ];
-
-        css = [ "biomejs" ];
-        javascript = [ "biomejs" ];
-        javascriptreact = [ "biomejs" ];
-        typescript = [ "biomejs" ];
-        typescriptreact = [ "biomejs" ];
-
-        gdscript = [ "gdlint" ];
-      };
-    };
 
     # ui
     dressing.enable = true; # use Telescope for `vim.ui.input` & `vim.ui.select`
