@@ -252,28 +252,27 @@
     ts-context-commentstring.enable = true; # automatically use correct comment syntax for different parts of file
   };
 
-  keymaps =
-    [
-      {
-        action = "";
-        key = "<leader>t";
-        mode = "n";
-        options = {
-          desc = "+Treesitter features";
-        };
-      }
+  keymaps = [
+    {
+      action = "";
+      key = "<leader>t";
+      mode = "n";
+      options = {
+        desc = "+Treesitter features";
+      };
+    }
 
-      # sticky context
-      {
-        action = "<Cmd>TSContextToggle<CR>";
-        key = "<leader>tc";
-        mode = "n";
-        options = {
-          desc = "Treesitter: toggle sticky context";
-        };
-      }
-    ]
-    ++
+    # sticky context
+    {
+      action = "<Cmd>TSContextToggle<CR>";
+      key = "<leader>tc";
+      mode = "n";
+      options = {
+        desc = "Treesitter: toggle sticky context";
+      };
+    }
+  ]
+  ++
     # treesj split, join, toggle
     [
       {
