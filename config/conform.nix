@@ -4,7 +4,7 @@
   extraPackages = with pkgs; [
     biome # TypeScript
     gdtoolkit_4 # Godot gdformat, gdlint
-    nixfmt-rfc-style
+    nixfmt
     stylua
   ];
 
