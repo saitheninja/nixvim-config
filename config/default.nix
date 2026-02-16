@@ -144,7 +144,6 @@
     inc-rename.enable = true; # preview rename while typing
 
     # ui
-    colorful-winsep.enable = true; # coloured border for focused window
     dressing.enable = true; # use Telescope for `vim.ui.input` & `vim.ui.select`
     fidget.enable = true; # notifications & LSP progress in bottom right
     grug-far.enable = true; # find and replace
