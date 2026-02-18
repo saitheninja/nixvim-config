@@ -6,6 +6,10 @@
       enable = true; # show indent guides
 
       settings = {
+        # indent = {
+        #   char = "│"; # U+2502: BOX DRAWINGS LIGHT VERTICAL
+        # };
+
         scope = {
           enabled = true; # highlight indent and underline top and bottom of scope
 
@@ -306,6 +310,7 @@
       -- from indent-blankline docs
       -- rainbow-delimiters integration
       -- "Setting a list of highlights for scope is currently broken" https://github.com/lukas-reineke/indent-blankline.nvim/issues/893#issuecomment-2167822070
+      -- "Scope index is broken" https://github.com/lukas-reineke/indent-blankline.nvim/issues/860
       require("ibl").setup { scope = { highlight = {
         "RainbowDelimiterRed",
         "RainbowDelimiterYellow",

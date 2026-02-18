@@ -27,52 +27,55 @@
   };
 
   opts = {
-    # cursor
+    # Cursor
     cursorline = true; # highlight cursor line
     cursorlineopt = "number,line"; # number, line, both, screenline
 
-    # folding
+    # Folding
     foldenable = true;
     foldcolumn = "0"; # fold column width
     foldtext = ""; # set to empty string so that it doesn't mess with syntax highlighting
     foldlevelstart = 99; # start buffer with all folds open
 
-    # indents
+    # Indents
     expandtab = true; # expand tabs to spaces
     shiftwidth = 2; # number of spaces to use for each step of indent
     tabstop = 2; # number of spaces that a tab counts for
     breakindent = true; # wrapped lines will get visually indented
     showbreak = "↳"; # string to put at the start of wrapped lines
 
-    # line numbers
+    # Line numbers
     number = true;
     relativenumber = true;
 
-    # list mode
-    # (whitespace characters; see :h listchars)
-    # default listchars: "tab:> ,trail:-,nbsp:+"
-    # end of line (eol): ⏎ return symbol U+23CE
-    # tab:
-    #   start (second displayed character): <
-    #   middle (fills remaining space): -
-    #   end (first displayed character): >
-    # trailing space: ␣ open box U+2423
-    # extends: ⪼ double succeeds U+2ABC
-    # precedes: ⪻ double precedes U+2ABB
-    # non-breaking space: ⍽ shouldered open box U+237D
-    list = true;
-    listchars = "tab:<->,trail:␣,extends:⪼,precedes:⪻,nbsp:⍽";
+    # List mode
+    # (Whitespace characters - see :h listchars)
+    # Default listchars: "tab:> ,trail:-,nbsp:+"
+    # End of line (eol): ⏎ return symbol U+23CE
 
-    # scroll
+    # Use box drawing characters so that there are no gaps
+    # Tab:
+    #   start (second displayed character): │ U+2502: BOX DRAWINGS LIGHT VERTICAL
+    #   middle (fills remaining space): ─ U+2500: BOX DRAWINGS LIGHT HORIZONTAL
+    #   end (first displayed character): ╴ U+2574: BOX DRAWINGS LIGHT LEFT
+
+    # Trailing space: ␣ open box U+2423
+    # Extends: ⪼ double succeeds U+2ABC
+    # Precedes: ⪻ double precedes U+2ABB
+    # Non-breaking space: ⍽ shouldered open box U+237D
+    list = true;
+    listchars = "tab:│─╴,trail:␣,extends:⪼,precedes:⪻,nbsp:⍽";
+
+    # Scroll
     scrolloff = 999; # minimum number of screen lines to keep visible around the cursor
     sidescrolloff = 10; # minimum number of screen columns to keep visible around the cursor
 
-    # search
+    # Search
     ignorecase = true; # ignore case if all lowercase
     smartcase = true; # case-sensitive if mixed-case
     inccommand = "split"; # incremental preview for substitute
 
-    # sessions
+    # Sessions
     # auto-session suggests adding: winpos, localoptions
     sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winpos,winsize";
 
@@ -83,7 +86,7 @@
     virtualedit = "block"; # in visual block mode, allow the cursor to move freely in columns
   };
 
-  # colours
+  # Colours
   colorschemes = {
     cyberdream = {
       enable = true;
@@ -100,7 +103,7 @@
     };
   };
 
-  # extra filetype associations
+  # Extra filetype associations
   filetype = {
     extension = {
       "postcss" = "scss";
@@ -110,7 +113,7 @@
     };
   };
 
-  # autocommands
+  # Autocommands
   autoCmd = [
     {
       callback.__raw = # lua
@@ -133,7 +136,7 @@
   keymaps =
     # :h <Cmd>
     # <Cmd> does not change modes
-    # command is not echoed so no need for <silent>
+    # The command is not echoed so no need for <silent>
 
     # Neovim
     [
