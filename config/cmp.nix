@@ -53,7 +53,7 @@
           { name = "nvim_lua"; } # neovim Lua API, only works in lua sections
           { name = "luasnip"; }
           { name = "buffer"; }
-          { name = "emoji"; }
+          # { name = "emoji"; }
         ];
 
         window = {
