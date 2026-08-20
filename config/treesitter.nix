@@ -65,7 +65,7 @@
       settings.lsp_interop = {
         enable = true;
 
-        border = "double";
+        # border = "double";
         peekDefinitionCode = {
           "<leader>d" = {
             query = "";

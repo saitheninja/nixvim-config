@@ -56,18 +56,18 @@
           # { name = "emoji"; }
         ];
 
-        window = {
-          completion = {
-            border = "double";
-            scrolloff = 5;
-            winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None";
-          };
-
-          documentation = {
-            border = "double";
-            winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None";
-          };
-        };
+        # window = {
+        #   completion = {
+        #     border = "double";
+        #     scrolloff = 5;
+        #     winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None";
+        #   };
+        #
+        #   documentation = {
+        #     border = "double";
+        #     winhighlight = "Normal:Pmenu,FloatBorder:FloatBorder,Search:None";
+        #   };
+        # };
       };
     };
 

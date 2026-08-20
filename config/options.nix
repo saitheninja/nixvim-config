@@ -79,6 +79,11 @@
     # auto-session suggests adding: winpos, localoptions
     sessionoptions = "blank,buffers,curdir,folds,help,tabpages,terminal,winpos,winsize";
 
+    # Style floating window.
+    winborder = "rounded";
+    # Style popupmenu window.
+    pumborder = "double";
+
     # ...rest
     colorcolumn = "81"; # display vertical line
     signcolumn = "yes:1"; # text shifts when column gets toggled, so just leave it on
