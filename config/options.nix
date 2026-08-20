@@ -97,11 +97,6 @@
       };
     };
   };
-  highlightOverride = {
-    NonText = {
-      link = "Conceal"; # override NonText with link to Conceal
-    };
-  };
 
   # Extra filetype associations
   filetype = {
